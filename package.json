@@ -1,0 +1,26 @@
+{
+  "name": "chrome-extension",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NataliaRizzi/chrome-extension.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NataliaRizzi/chrome-extension/issues"
+  },
+  "homepage": "https://github.com/NataliaRizzi/chrome-extension#readme",
+  "dependencies": {
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1"
+  }
+}

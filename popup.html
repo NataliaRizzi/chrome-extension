@@ -1,61 +1,74 @@
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="styles.css">
   <title>Your Favourite Links</title>
   <script src="popup.js"></script>
+  <script src="background.js"></script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <style>
-  #categories {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-row-gap: 20px;
-    }
-  </style>
 </head>
 <body>
-  <div id="categories">
-    <div id="apps" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
-    transition: 0.3s; border-radius: 5px; 
-    padding-bottom: 2px;
-    padding-top: 2px;
-    padding-left: 15px; 
-    padding-right: 15px;
-    margin-bottom: 10px;
-    margin-left:5px;
-    margin-right:10px">
-    <img src="images/apps.png">
-    <h4>Apps</h4>
-   </div>
-    <div id="coding" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
-    transition: 0.3s; border-radius: 5px; 
-    padding-bottom: 2px;
-    padding-top: 2px;
-    padding-left: 15px; 
-    padding-right: 15px;
-    margin-bottom: 10px;
-    margin-left:5px;
-    margin-right:10px">
-      <img src="images/codings.png">
-      <h4>Coding</h4>
-    </div>
-    <div id="travel" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
-    transition: 0.3s; border-radius: 5px; 
-    padding-bottom: 2px;
-    padding-top: 2px;
-    padding-left: 15px; 
-    padding-right: 15px;
-    margin-bottom: 10px;
-    margin-left:5px;
-    margin-right:10px">
+  <div id="container">
+    <div id="sidebar">
+      <div id="categories">
+        <div id="apps">
+        <img src="images/apps.png">
+        <h4>Apps</h4>
+        </div>
+        <div id="coding">
+        <img src="images/codings.png">
+        <h4>Coding</h4>
+        </div>
+        <div id="travel">
         <img src="images/travel.png">
         <h4>Travel</h4>
+        </div>
+        <div id="recipes">
+        <img src="images/recipes.png">
+        <h4>Recipes</h4>
+        </div>
+        <div id="movies">
+        <img src="images/movies.png">
+        <h4>Movies</h4>
+        </div>
+        <div id="books">
+        <img src="images/books.png">
+        <h4>Books</h4>
+        </div>
+        <div id="podcasts">
+        <img src="images/podcast.png">
+        <h4>Podcasts</h4>
+        </div>
+        <div id="sports">
+        <img src="images/sports.png">
+        <h4>Sports</h4>
+        </div>
+        <div id="music">
+        <img src="images/music.png">
+        <h4>Music</h4>
+        </div>
+
       </div>
-
+    <div class="dropdown">
+      <span id="span">
+        <select id="select">
+            <option value="choose">Add to a category</option>
+            <option value="apps">Apps</option>
+            <option value="coding">Coding</option>
+            <option value="travel">Travel</option>
+            <option value="recipes">Recipes</option>
+            <option value="movies">Movies</option>
+            <option value="books">Books</option>
+            <option value="podcasts">Podcasts</option>
+            <option value="sports">Sports</option>
+            <option value="music">Music</option>
+        </select>
+      </span>  
+    </div>
+    <div id="my-links"></div>
   </div>
-
-  <div id="my-links>"></div>
-  <h3>My Links</h3>
-  <button id="button"><img src="images/add.png"/></button>
+</div>
 </body>
 </html>
