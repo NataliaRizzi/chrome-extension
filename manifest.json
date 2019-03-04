@@ -20,7 +20,8 @@
     "activeTab",
     "http://*/*",
     "storage",
-    "contentSettings"
+    "contentSettings",
+    "alarms"
   ],
   "manifest_version": 2
 }

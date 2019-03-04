@@ -72,6 +72,16 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
+  // var deleteUrl =document.getElementById('deleteBtn');
+  // deleteUrl.addEventListener('click', function () {
+  //   if ()
+  //   chrome.runtime.sendMessage({
+  //     type: 'delete_url',
+
+  //   })
+  // }
+  // )
+
   const dropdownMenu = document.getElementById('select');  
   dropdownMenu.onchange = function (event) {
     if (event.target.value !== 'choose') {
@@ -85,33 +95,37 @@ document.addEventListener('DOMContentLoaded', function () {
   };
 
 
-chrome.runtime.onMessage.addListener(
-  function (request) {
-    switch (request.type) {
-      case 'state':
-        renderList(request.state.bookmarks[request.state.currentCategory]);
+  chrome.runtime.onMessage.addListener(
+    function (request) {
+      switch (request.type) {
+        case 'state':
+          renderList(request.state.bookmarks[request.state.currentCategory]);
 
-        break;
+          break;
+      }
+      
     }
-    
-  }
-)
-chrome.runtime.sendMessage('popup_open');
-chrome.runtime.sendMessage('open_new_tab')
+  )
+  chrome.runtime.sendMessage('popup_open');
+  chrome.runtime.sendMessage('open_new_tab')
 
 
-function renderList(arrUrl) {
-  var ul = document.createElement('ul');
-  if (arrUrl) {
-    arrUrl.forEach(function (url) {
-      var li = document.createElement('li');
-      var newLink = document.createElement('a');
-      newLink.textContent = url;
-      newLink.href = url;
-      li.appendChild(newLink);
-      ul.appendChild(li);
-    })
+  function renderList(arrUrl) {
+    var ul = document.createElement('ul');
+    if (arrUrl) {
+      arrUrl.forEach(function (url) {
+        var li = document.createElement('li');
+        var newLink = document.createElement('a');
+        var deleteButton = document.createElement('button');
+        //deleteButton.id = 'deleteBtn';
+        deleteButton.innerHTML= "x";
+        newLink.textContent = url;
+        newLink.setAttribute('href', url);
+        newLink.setAttribute('target', '_blank');
+        li.appendChild(newLink).appendChild(deleteButton);
+        ul.appendChild(li);
+      })
+    }
+    document.getElementById('my-links').innerHTML = ul.innerHTML;
   }
-  document.getElementById('my-links').innerHTML = ul.innerHTML;
-}
 })

@@ -1,3 +1,9 @@
+let now = new Date(), hours = 12, minutes = 56, seconds = 45;
+let initialDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, seconds);
+let whenToRing = initialDate.getTime();
+
+console.log('fhejskhfrdjngjew', whenToRing)
+
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     console.log('req', request);
@@ -18,10 +24,21 @@ chrome.runtime.onMessage.addListener(
         })
         break;
       case "set_current_category":
-        setCurrentCategory(request.category)
+        setCurrentCategory(request.category);
+      break;
+      // case "delete_url":
+
+      //   break;
+      case "create_alarm":
+        chrome.alarms.create('MyAlarm', {
+          when: whenToRing,
+          periodInMinutes: 1440
+        });
+      }
     }
-  }
+  
 );
+
 
 let state = {
   bookmarks: {
@@ -74,3 +91,18 @@ function setCurrentCategory(category) {
     })
   }
 }
+
+chrome.alarms.onAlarm.addListener(function(alarm) {
+  if (alarm.name === 'Myalarm') {
+    chrome.notifications.create({
+        type: 'basic',
+        iconUrl: 'images/open-book.png',
+        title: 'Reminder',
+        message: 'Time to read your links'
+    });
+  } 
+});
+
+
+chrome
+
