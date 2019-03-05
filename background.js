@@ -1,4 +1,4 @@
-let now = new Date(), hours = 12, minutes = 56, seconds = 45;
+let now = new Date(), hours = 17, minutes = 59, seconds = 45;
 let initialDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, seconds);
 let whenToRing = initialDate.getTime();
 
@@ -25,10 +25,12 @@ chrome.runtime.onMessage.addListener(
         break;
       case "set_current_category":
         setCurrentCategory(request.category);
-      break;
-      // case "delete_url":
-
-      //   break;
+        break;
+      case "delete_url":
+      console.log(request)
+      deleteUrl(request)
+     
+        break;
       case "create_alarm":
         chrome.alarms.create('MyAlarm', {
           when: whenToRing,
@@ -38,11 +40,8 @@ chrome.runtime.onMessage.addListener(
     }
   
 );
-
-
 let state = {
   bookmarks: {
-    default: [],
     apps: [],
     coding: [],
     travel: [],
@@ -58,6 +57,7 @@ let state = {
 
 function sendState() {
   chrome.runtime.sendMessage({type: 'state', state: state});
+  console.log('state: ', state);
 }
 
 function setState(mergeState) {
@@ -66,11 +66,16 @@ function setState(mergeState) {
 }
 
 function addUrlToCategory(url, category) {
+  chrome.alarms.create('MyAlarm', {
+    when: Date.now()+2000,
+    periodInMinutes: 1440
+  });
+
   if (state.bookmarks) {
     if (state.bookmarks[category].indexOf(url) === -1)
     setState({
       bookmarks: Object.assign(state.bookmarks, {
-        [category]: state.bookmarks[category].concat(url),
+        [category]: state.bookmarks[category].concat({ url, id: url}),
       }),
       currentCategory: category
     });
@@ -93,7 +98,8 @@ function setCurrentCategory(category) {
 }
 
 chrome.alarms.onAlarm.addListener(function(alarm) {
-  if (alarm.name === 'Myalarm') {
+  console.log('alarm', alarm);
+  if (alarm.name === 'MyAlarm') {
     chrome.notifications.create({
         type: 'basic',
         iconUrl: 'images/open-book.png',
@@ -103,6 +109,11 @@ chrome.alarms.onAlarm.addListener(function(alarm) {
   } 
 });
 
+function deleteUrl (urlObj) {
+  const index = state.bookmarks[state.currentCategory].findIndex(i => i.id === urlObj.id);
+  console.log('index: ', index, 'urlObj: ', urlObj)
+  state.bookmarks[state.currentCategory].splice(index, 1);
+  sendState()
+}
 
-chrome
 

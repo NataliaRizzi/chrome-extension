@@ -19,9 +19,11 @@
     "tabs",
     "activeTab",
     "http://*/*",
+    "https://*/*",
     "storage",
     "contentSettings",
-    "alarms"
+    "alarms",
+    "notifications"
   ],
   "manifest_version": 2
 }

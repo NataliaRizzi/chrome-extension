@@ -63,24 +63,35 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  var sportsBtn = document.getElementById('music');
-  sportsBtn.addEventListener('click', function () {
+  var musicBtn = document.getElementById('music');
+  musicBtn.addEventListener('click', function () {
     chrome.runtime.sendMessage({
       type: 'set_current_category',
       category: 'music'
     });
   });
 
+  function setDeleteButton() { 
+    var deleteButtons = document.getElementsByClassName('deleteBtn');
 
-  // var deleteUrl =document.getElementById('deleteBtn');
-  // deleteUrl.addEventListener('click', function () {
-  //   if ()
-  //   chrome.runtime.sendMessage({
-  //     type: 'delete_url',
+    for (var i = 0; i < deleteButtons.length; i++) {
+      let button = deleteButtons[i];
+      button.addEventListener('click', function () {
+        chrome.runtime.sendMessage({
+          type: 'delete_url',
+          id: button.parentElement.id
+        });
+      })
+    };
+  }
 
-  //   })
-  // }
-  // )
+  // function setToggleButton() {
+  //   var toggleButtons = document.getElementsByClassName('toggleBtn');
+  //     for (var i =0; i < toggleButtons.length; i++) {
+  //       let toggleButton = toggleButtons[i];
+  //       toggleButton.runtime.sendMessage()
+  //     }
+
 
   const dropdownMenu = document.getElementById('select');  
   dropdownMenu.onchange = function (event) {
@@ -100,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
       switch (request.type) {
         case 'state':
           renderList(request.state.bookmarks[request.state.currentCategory]);
-
           break;
       }
       
@@ -113,19 +123,25 @@ document.addEventListener('DOMContentLoaded', function () {
   function renderList(arrUrl) {
     var ul = document.createElement('ul');
     if (arrUrl) {
-      arrUrl.forEach(function (url) {
+      arrUrl.forEach(function (urlObj) {
+        console.log('rendering', urlObj)
         var li = document.createElement('li');
+        li.setAttribute('id', urlObj.id)
         var newLink = document.createElement('a');
         var deleteButton = document.createElement('button');
-        //deleteButton.id = 'deleteBtn';
+        deleteButton.classList.add('deleteBtn');
+        console.log(deleteButton.classList)
         deleteButton.innerHTML= "x";
-        newLink.textContent = url;
-        newLink.setAttribute('href', url);
+        newLink.textContent = urlObj.url;
+        newLink.setAttribute('href', urlObj.url);
         newLink.setAttribute('target', '_blank');
-        li.appendChild(newLink).appendChild(deleteButton);
+        li.appendChild(newLink)
+        li.appendChild(deleteButton);
         ul.appendChild(li);
       })
     }
     document.getElementById('my-links').innerHTML = ul.innerHTML;
+    setDeleteButton();
+    //setToggleButton();
   }
 })
