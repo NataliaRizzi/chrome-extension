@@ -85,12 +85,19 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   }
 
-  // function setToggleButton() {
-  //   var toggleButtons = document.getElementsByClassName('toggleBtn');
-  //     for (var i =0; i < toggleButtons.length; i++) {
-  //       let toggleButton = toggleButtons[i];
-  //       toggleButton.runtime.sendMessage()
-  //     }
+  enableNotifications();
+
+  
+  function enableNotifications(){
+    let toggleButton = document.getElementById('check-button');
+    toggleButton.addEventListener('click', function () {
+      chrome.runtime.sendMessage({
+        type: 'enable_notifications',
+        flag: toggleButton.checked
+     });
+    })   
+
+  }
 
 
   const dropdownMenu = document.getElementById('select');  
@@ -128,10 +135,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var li = document.createElement('li');
         li.setAttribute('id', urlObj.id)
         var newLink = document.createElement('a');
-        var deleteButton = document.createElement('button');
+        var deleteButton = document.createElement('img');
+        deleteButton.setAttribute('src', './images/deltete-btn.png')
+        deleteButton.style.width = '16px';
+        deleteButton.style.marginLeft = '5px';
+        deleteButton.style.marginTop = '5px';
         deleteButton.classList.add('deleteBtn');
-        console.log(deleteButton.classList)
-        deleteButton.innerHTML= "x";
         newLink.textContent = urlObj.url;
         newLink.setAttribute('href', urlObj.url);
         newLink.setAttribute('target', '_blank');
@@ -142,6 +151,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     document.getElementById('my-links').innerHTML = ul.innerHTML;
     setDeleteButton();
-    //setToggleButton();
+  
   }
-})
+
+  
+
+});

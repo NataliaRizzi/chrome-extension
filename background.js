@@ -2,10 +2,8 @@ let now = new Date(), hours = 17, minutes = 59, seconds = 45;
 let initialDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes, seconds);
 let whenToRing = initialDate.getTime();
 
-console.log('fhejskhfrdjngjew', whenToRing)
-
 chrome.runtime.onMessage.addListener(
-  function (request, sender, sendResponse) {
+  function (request) {
     console.log('req', request);
     switch (request.type) {
       case "popup_open":
@@ -19,8 +17,8 @@ chrome.runtime.onMessage.addListener(
       case "add_url":
         chrome.tabs.query({ active: true, currentWindow: true}, function (tabs) {
           var activeTab = tabs[0];
+          console.log('activeTab.url', activeTab.url)
           addUrlToCategory(activeTab.url, request.category);
-          console.log(request.category)
         })
         break;
       case "set_current_category":
@@ -31,11 +29,22 @@ chrome.runtime.onMessage.addListener(
       deleteUrl(request)
      
         break;
-      case "create_alarm":
-        chrome.alarms.create('MyAlarm', {
-          when: whenToRing,
-          periodInMinutes: 1440
-        });
+      // case "create_alarm":
+      //   chrome.alarms.create('MyAlarm', {
+      //     when: whenToRing,
+      //     periodInMinutes: 1440
+      //   });
+      case "enable_notifications":
+      const newState = { enableNotifications: request.flag }
+      console.log('flag', newState)
+      setState(newState);
+      if (request.flag) {
+         chrome.alarms.create("EnableNotifications", {
+        when: Date.now()
+      })
+      }
+     
+        break;
       }
     }
   
@@ -52,7 +61,8 @@ let state = {
     sports: [],
     music: []
   },
-  currentCategory: ''
+  currentCategory: '',
+  enableNotifications: false
 }
 
 function sendState() {
@@ -66,8 +76,9 @@ function setState(mergeState) {
 }
 
 function addUrlToCategory(url, category) {
+  if(state.enableNotifications)
   chrome.alarms.create('MyAlarm', {
-    when: Date.now()+2000,
+    when: Date.now()+3000,
     periodInMinutes: 1440
   });
 
@@ -98,15 +109,21 @@ function setCurrentCategory(category) {
 }
 
 chrome.alarms.onAlarm.addListener(function(alarm) {
-  console.log('alarm', alarm);
   if (alarm.name === 'MyAlarm') {
     chrome.notifications.create({
         type: 'basic',
-        iconUrl: 'images/open-book.png',
-        title: 'Reminder',
-        message: 'Time to read your links'
+        iconUrl: 'images/url-alarm.png',
+        title: 'Reminder!',
+        message: 'Time to read your links :-)'
     });
-  } 
+  } else if (alarm.name === 'EnableNotifications') {
+    chrome.notifications.create({
+      type: 'basic',
+      iconUrl: 'images/books.png',
+      title: 'Notifications ON!',
+      message: ''
+  });
+  }
 });
 
 function deleteUrl (urlObj) {
@@ -115,5 +132,6 @@ function deleteUrl (urlObj) {
   state.bookmarks[state.currentCategory].splice(index, 1);
   sendState()
 }
+
 
 

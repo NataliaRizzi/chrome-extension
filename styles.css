@@ -2,9 +2,81 @@ body {
   margin: 0px;
   padding:0px;
   background-color:#fbfcfd;
-  height: 200px;
-  width: 400px
+  max-height: 300px;
+  width: 400px;
+  max-width: 400px;
+  display: inline-block;
+
 }
+
+.buttons {
+  margin-bottom: 15px;
+  justify-content: right;
+  
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 21px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: greenyellow;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px greenyellow;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 14px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 
 #categories {
   display: grid;
@@ -12,31 +84,48 @@ body {
   grid-row-gap: 20px;
   cursor: pointer;
   padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 6px;
   padding-bottom: 10px;
 }
 
 img {
-  display: block;
-  position: relative;
-  right: -25%;
+  width: 70%;
+  /* display: block;
+  position: relative; */
+  /* right: -20% */
 }
 
-#apps {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
+.card h4 {
+  margin: 0;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+  background-color: rgba(242, 242, 242, 242);
   transition: 0.3s; 
   border-radius: 5px; 
-  padding-bottom: 2px;
+  /* padding-bottom: 2px;
   padding-top: 2px;
   padding-left: 15px; 
   padding-right: 15px;
   margin-bottom: 10px;
   margin-left:5px;
-  margin-right:10px;
+  margin-right:10px; */
+  width: 90%;
+  height: 124px;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   
 }
 
-#coding {
+.deleteBtn {
+  margin-bottom: 0px;
+}
+
+  /* #coding {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
   transition: 0.3s; 
   border-radius: 5px; 
@@ -46,11 +135,14 @@ img {
   padding-right: 15px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 10px
-}
+  margin-right: 10px;
+  width: 80px;
+  height: 124px;
+  margin: 1px;
+} */
 
 
-#travel {
+/* #travel {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
   transition: 0.3s; 
   border-radius: 5px; 
@@ -60,11 +152,14 @@ img {
   padding-right: 15px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 10px
-}
+  margin-right: 10px;
+  width: 80px;
+  height: 124px;
+  margin: 1px;
+} */
 
 
-#recipes {
+/* #recipes {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
   transition: 0.3s; 
   border-radius: 5px; 
@@ -74,10 +169,13 @@ img {
   padding-right: 15px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 10px
-}
+  margin-right: 10px;
+  width: 80px;
+  height: 124px;
+  margin: 1px;
+} */
 
-#movies {
+/* #movies {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
   transition: 0.3s; 
   border-radius: 5px; 
@@ -87,10 +185,13 @@ img {
   padding-right: 15px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 10px 
-}
+  margin-right: 10px;
+  width: 80px;
+  height: 124px;
+  margin: 1px;
+} */
 
-#books {
+/* #books {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
   transition: 0.3s; 
   border-radius: 5px; 
@@ -100,10 +201,13 @@ img {
   padding-right: 15px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 10px
-}
+  margin-right: 10px;
+  width: 80px;
+  height: 124px;
+  margin: 1px;
+} */
 
-#podcasts {
+/* #podcasts {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
   transition: 0.3s; 
   border-radius: 5px; 
@@ -113,10 +217,29 @@ img {
   padding-right: 15px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 10px
-}
+  margin-right: 10px;
+  width: 80px;
+  height: 124px;
+  margin: 1px;
+} */
 
-#sports {
+/* #sports {
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
+  transition: 0.3s; 
+  border-radius: 5px; 
+  padding-bottom: 2px;
+  padding-top: 2px;
+  padding-left: 15px; 
+  padding-right: 15px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
+  width: 80px;
+  height: 124px;
+  margin: 1px;
+}  */
+
+/* #music {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
   transition: 0.3s; 
   border-radius: 5px; 
@@ -126,21 +249,11 @@ img {
   padding-right: 15px;
   margin-bottom: 10px;
   margin-left: 5px;
-  margin-right: 10px
-}
-
-#music {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px
-}
+  margin-right: 10px;
+  width: 80px;
+  height: 124px;
+  margin: 1px;
+}  */
 
 #span {
   padding-left: 15px
@@ -149,7 +262,7 @@ img {
 #select {
   color: black;
   cursor: pointer;
-  background: rgba(white,0.3); 
+  background-color: rgba(242, 242, 242, 242); 
   border: 2px solid white;
   font-size: 120%;
   padding: 0.4em;
@@ -157,7 +270,9 @@ img {
   -moz-appearance: none;
   appearance: none;
   font: sans-serif;
-}
+  margin-top: 10px;
+
+} 
 
 ::-webkit-scrollbar{
   width: 8px;
@@ -169,11 +284,10 @@ img {
   background-color:rgba(0,0,0,0.2);
 }
 
-li {
+li, .deleteButton {
   list-style-type: none;
-  padding-left: 15px
-}
-
-.deleteBtn {
-margin-left: 2px;
+  padding-left: 15px;
+  vertical-align: middle;
+  margin-bottom: -5px;
+  margin-left: 4px;
 }
