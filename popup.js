@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var deleteButton = document.createElement('img');
         deleteButton.setAttribute('src', './images/deltete-btn.png')
         deleteButton.style.width = '16px';
+        deleteButton.style.height = '16px';
         deleteButton.style.marginLeft = '5px';
-        deleteButton.style.marginTop = '5px';
         deleteButton.classList.add('deleteBtn');
         newLink.textContent = urlObj.url;
         newLink.setAttribute('href', urlObj.url);

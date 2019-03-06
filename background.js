@@ -78,7 +78,7 @@ function setState(mergeState) {
 function addUrlToCategory(url, category) {
   if(state.enableNotifications)
   chrome.alarms.create('MyAlarm', {
-    when: Date.now()+3000,
+    when: Date.now()+4000,
     periodInMinutes: 1440
   });
 
