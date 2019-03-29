@@ -1,17 +1,17 @@
-#TABULA: The Bookmark Manager with Notifications
+# TABULA: The Bookmark Manager with Notifications
 // Description
 
 // Screenshots
 
-##Getting Started
+## Getting Started
 
 
-##Built with
+## Built with
 Javascript
 HTML
 CSS
 
-##Contributing
+## Contributing
 
 Improvements are welcome :)
 
