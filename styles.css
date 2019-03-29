@@ -1,7 +1,7 @@
 body {
   margin: 0px;
-  padding: 0px;
-  background-color: #fbfcfd;
+  padding:0px;
+  background-color:#fbfcfd;
   max-height: 300px;
   width: 400px;
   max-width: 400px;
@@ -25,14 +25,12 @@ body {
   height: 21px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -57,21 +55,20 @@ body {
   transition: .4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: greenyellow;
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px greenyellow;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(18px);
   -ms-transform: translateX(18px);
   transform: translateX(18px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 14px;
 }
@@ -93,9 +90,6 @@ input:checked+.slider:before {
 
 img {
   width: 70%;
-  /* display: block;
-  position: relative; */
-  /* right: -20% */
 }
 
 .card h4 {
@@ -103,17 +97,10 @@ img {
 }
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
   background-color: rgba(242, 242, 242, 242);
-  transition: 0.3s;
-  border-radius: 5px;
-  /* padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left:5px;
-  margin-right:10px; */
+  transition: 0.3s; 
+  border-radius: 5px; 
   width: 90%;
   height: 124px;
   margin: 1px;
@@ -121,142 +108,12 @@ img {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-
+  
 }
 
 .deleteBtn {
   margin-bottom: 0px;
 }
-
-/* #coding {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  width: 80px;
-  height: 124px;
-  margin: 1px;
-} */
-
-
-/* #travel {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  width: 80px;
-  height: 124px;
-  margin: 1px;
-} */
-
-
-/* #recipes {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  width: 80px;
-  height: 124px;
-  margin: 1px;
-} */
-
-/* #movies {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  width: 80px;
-  height: 124px;
-  margin: 1px;
-} */
-
-/* #books {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  width: 80px;
-  height: 124px;
-  margin: 1px;
-} */
-
-/* #podcasts {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  width: 80px;
-  height: 124px;
-  margin: 1px;
-} */
-
-/* #sports {
-  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  width: 80px;
-  height: 124px;
-  margin: 1px;
-}  */
-
-/* #music {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5); 
-  transition: 0.3s; 
-  border-radius: 5px; 
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 15px; 
-  padding-right: 15px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-right: 10px;
-  width: 80px;
-  height: 124px;
-  margin: 1px;
-}  */
 
 #span {
   padding-left: 15px
@@ -265,7 +122,7 @@ img {
 #select {
   color: black;
   cursor: pointer;
-  background-color: rgba(242, 242, 242, 242);
+  background-color: rgba(242, 242, 242, 242); 
   border: 2px solid white;
   font-size: 120%;
   padding: 0.4em;
@@ -275,20 +132,19 @@ img {
   font: sans-serif;
   margin-top: 10px;
 
-}
+} 
 
-::-webkit-scrollbar {
+::-webkit-scrollbar{
   width: 8px;
-  background-color: #fbfcfd;
+  background-color:#fbfcfd;
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb{
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color:rgba(0,0,0,0.2);
 }
 
-li,
-.deleteButton {
+li, .deleteButton {
   list-style-type: none;
   padding: 5px 15px;
   margin: 5px 10px;

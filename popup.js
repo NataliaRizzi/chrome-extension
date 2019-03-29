@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  var codingBtn = document.getElementById('coding');
+  var codingBtn = document.getElementById('coding'); 
   codingBtn.addEventListener('click', function () {
     chrome.runtime.sendMessage({
       type: 'set_current_category',
