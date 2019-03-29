@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
       category: 'books'
     });
   });
-  
+
   var podcastsBtn = document.getElementById('podcasts');
   podcastsBtn.addEventListener('click', function () {
     chrome.runtime.sendMessage({
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  function setDeleteButton() { 
+  function setDeleteButton() {
     var deleteButtons = document.getElementsByClassName('deleteBtn');
 
     for (var i = 0; i < deleteButtons.length; i++) {
@@ -87,20 +87,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   enableNotifications();
 
-  
-  function enableNotifications(){
+
+  function enableNotifications() {
     let toggleButton = document.getElementById('check-button');
     toggleButton.addEventListener('click', function () {
       chrome.runtime.sendMessage({
         type: 'enable_notifications',
         flag: toggleButton.checked
-     });
-    })   
+      });
+    })
 
   }
 
 
-  const dropdownMenu = document.getElementById('select');  
+  const dropdownMenu = document.getElementById('select');
   dropdownMenu.onchange = function (event) {
     if (event.target.value !== 'choose') {
       chrome.runtime.sendMessage({
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
           renderList(request.state.bookmarks[request.state.currentCategory]);
           break;
       }
-      
+
     }
   )
   chrome.runtime.sendMessage('popup_open');
@@ -151,9 +151,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     document.getElementById('my-links').innerHTML = ul.innerHTML;
     setDeleteButton();
-  
+
   }
 
-  
+
 
 });
