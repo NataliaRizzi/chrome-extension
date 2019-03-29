@@ -12,7 +12,7 @@
 1) To install dependencies run npm i.
 2) In Chorme add the extensions in the extension page by clicking "Load unpacked".
 
-<img width="200" height="50" src="Assets/img5r.png">
+<img width="200" height="50" src="Assets/imgr5.png">
 
 
 ## Built with
