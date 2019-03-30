@@ -1,12 +1,10 @@
 # TABULA: The Bookmark Manager with Notifications
-// Description
+Tabula is a bookmark manager extension that helps you to save your favourite links by category and not forgetting about that
 
-<section>
-  <img width="300" height="450" src="Assets/img1r.png">
-  <img width="300" height="450" src="Assets/img2r.png">
-  <img width="300" height="450" src="Assets/img3r.png">
-  <img width="300" height="450" src="Assets/img4r.png">
-</section>
+<p align="center">
+  <img width="300" height="450" src="Assets/img1r.png">    <img width="300" height="450" src="Assets/img2r.png">
+  <img width="300" height="450" src="Assets/img3r.png">    <img width="300" height="450" src="Assets/img4r.png"> 
+</p>
 
 ## Getting Started
 1) To install dependencies run npm i.
