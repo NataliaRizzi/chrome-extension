@@ -22,7 +22,7 @@ HTML
 CSS
 
 ## Author
-Natalia Rizzi 
+Natalia Rizzi [link to Linkedin!](https://www.linkedin.com/in/nataliarizzi/?locale=en_US)
 
 ## Contributing
 
